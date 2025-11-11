@@ -1,0 +1,168 @@
+Day3
+
+The `{{ }}` syntax is called interpolation.
+
+Now, I always say this clearly in class — **React** is *not* a framework, it’s a **library**.
+Angular, on the other hand, is a **complete framework** — an entire ecosystem designed for **enterprise-scale applications**.
+
+
+| Concept      | React        | Angular                                | Vue                 |
+| ------------ | ------------ | -------------------------------------- | ------------------- |
+| Creator      | Facebook     | Google                                 | Evan You            |
+| Type         | Library      | Framework                              | Framework           |
+| Core Concept | Virtual DOM  | Dependency Injection + Template-driven | Virtual DOM         |
+| Use Case     | UI rendering | Enterprise apps, SPA                   | Lightweight UI apps |
+
+And when Angular arrived with **TypeScript** and **Angular CLI**, it gave developers a sense of structure, tooling, and consistency that other libraries didn’t.
+
+### 🧱 The Developer’s Blueprint
+
+Before we even write a line of Angular code, let’s understand the foundation.
+
+Our development setup usually looks like this:
+
+```
+Windows / Linux / macOS
+     ↓
+Node.js
+     ↓
+Angular CLI
+```
+
+Once Node.js is installed, the **Angular CLI** becomes your power tool.
+With commands like:
+
+```bash
+ng new hello-app
+ng serve
+ng build
+```
+
+
+you can create, run, and bundle your application.
+
+Now, here’s a small trick:
+If you want the **latest Angular version (say 20.0)**, just run `ng new hello-app`.
+But if you want to create a project with an **older version (like Angular 17)**, you’ll slightly tweak the command — we’ll explore that when we practice version management.
+
+
+
+--------------------------------
+### 🧩 Understanding the Build and Bundle
+
+When you run `ng serve`, Angular compiles your **TypeScript** into **JavaScript** — and this is where the concept of a **transpiler** comes in.
+It’s not compiling into bytecode like Java or IL like C#. Instead, it *transpiles* one high-level language (TypeScript) into another (JavaScript).
+
+The output?
+A neatly bundled set of JavaScript files:
+
+```
+main.js
+polyfills.js
+runtime.js
+styles.css
+vendor.js
+```
+
+Together, these form your *application bundle* — the engine that runs inside the browser.
+
+When it’s time to deploy, `ng build` packages this into a **dist folder**, a compressed distributable that you can drop into any web server’s static folder — including an **ASP.NET Core** application, since Visual Studio already integrates Angular templates.
+
+
+
+----------------------------------------------
+
+
+### 🌱 Building Our First Angular Component in the Modern Framework World
+
+
+IN version 17
+ng new DFLStoreApp --version 17
+
+Once your project is created, you’ll see a structure like this inside src/app:
+
+app.component.ts
+app.component.html
+app.component.css
+app.component.spec.ts
+Each of these plays a specific role:
+
+.ts → logic (written in TypeScript)
+.html → template (your UI view)
+.css → styling for the component
+.spec.ts → unit test file
+
+
+
+-----------------------------------------------
+
+When you open an Angular Module, what do you find inside? You find these wonderful types — each one playing a special role in your app’s ecosystem:
+
+🧩 Components → The face of your application. These are the parts users actually see and interact with — buttons, forms, cards, dashboards — all made up of components.
+
+🧠 Services → The brains that handle logic behind the scenes. They fetch data, process information, and coordinate between components.
+
+(And yes, you’re right!) We call them Injectables, because Angular uses a design pattern called Dependency Injection (DI) — meaning Angular itself will inject these services into your components when needed, instead of you manually creating them.
+
+🧾 Interfaces → The contracts that define structure and guarantee consistency between components and services.
+
+🎨 Directives → The decorators that add special behaviors to elements in your HTML.
+
+🧱 Pipes → The formatters — they transform data beautifully on the screen (like turning “2025-10-15” into “15 Oct 2025”).
+
+
+
+---------------------------------------------------------------------------------
+
+So now you can visualize an Angular Module as a container — a house where all these Angular types live together, well-organized and logically grouped to serve a common purpose.
+
+For example:
+
+📦 AppModule
+
+Components → AppComponent, HeaderComponent, FooterComponent
+Services → UserService, AuthService
+Pipes → DatePipe, CurrencyPipe
+Directives → HighlightDirective
+
+
+
+@Components -> use like attribute in c# and inside angular it is decorator
+
+
+
+Angular gives these services a special name — Injectables — because Angular uses Dependency Injection (DI) to provide them to components.
+
+So instead of components creating services manually, Angular injects them automatically when needed.
+
+That’s why we don’t say “services are used by components.” We say:
+
+“Services are injected into components — hence they’re called Injectables.”
+
+
+It’s like saying — “Waiter doesn’t cook, the chef (service) is automatically available when the order (component) needs it.”
+
+
+every Angular component is technically a directive with a template attached! That’s why we say —
+
+“Components are directives with a view.”
+
+-----------------------------------------------------------------------------
+
+Finally, we have Pipes. Pipes are like stylists — they don’t change the data itself, but they change how the data looks on the screen.
+
+For example:
+
+Converting 2025-10-15 → 15 Oct 2025
+Turning true → Yes
+Formatting 5000 → ₹5,000
+
+Angular Type				Role / Purpose					Analogy
+--------------------------------------------------------------------------------------------------------------
+Component		   	UI + Interaction				Waiter taking orders
+Injectable (Service)		Business logic, data handling			Chef in the kitchen
+Directive			Extends behavior of HTML elements		Decorator or behavior enhancer
+Pipe				Formats data for display			Stylist / Formatter
+Interface			Defines structure of data			Blueprint / Contract
+
+
