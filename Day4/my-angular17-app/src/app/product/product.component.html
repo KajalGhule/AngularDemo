@@ -1,0 +1,32 @@
+<p>product works!</p>
+
+<button (click)="likeAll()">Like All Products</button>
+<hr/>
+<div class="product-list">
+  <div class="product-card" *ngFor="let item of products">
+
+    <h2>{{ item.title }}</h2>
+    <p>Price: ₹{{ item.price }}</p>
+    <p>Likes: {{ item.likes }}</p>
+
+    <!-- Pass product likes to child, listen to increment -->
+    <app-counter 
+      [count]="item.likes"
+      (increment)="onLikesIncrement(item, $event)">
+    </app-counter>
+
+  </div>
+</div>
+
+<!-- <div>
+
+  <h2>{{ title }}</h2>
+  <p>Price: ₹{{ price }}</p>
+  <p>Likes: {{ likes }}</p>
+
+
+  <app-counter [count]="likes" (increment)="onLikesIncrement($event)"></app-counter>
+</div> -->
+
+
+

@@ -1,0 +1,39 @@
+Day4
+
+
+
+Round brackets (click) → Event binding (child triggers action).
+Square brackets [count] → Property binding (parent passes data to child).
+@Input() decorator → Declares that a property can receive value from parent.
+Public vs Private → Public is needed if Angular template must access it.
+TypeScript types → Keep everything safe. count: number prevents string assignment errors.
+
+
+<app-counter [count]="likes" (increment)="onLikesIncrement($event)"></app-counter>
+
+
+| Part                                     | Code           | Meaning                             |
+| ---------------------------------------- | -------------- | ----------------------------------- |
+| `[count]="likes"`                        | Parent → Child | Send likes value to child display   |
+| `(increment)="onLikesIncrement($event)"` | Child → Parent | Receive increment signal from child |
+
+
+
+Parent (ProductComponent)
+     likes = 5
+         ↓ [count]
+Child (CounterComponent) displays 5
+         ↑ (increment emits 1)
+Parent updates likes = 6
+
+
+
+Child: onLike() button clicked!
+Child → emit(1)
+               ↓
+Parent receives event → onLikesIncrement(1)
+Parent updates likes value
+
+
+*ngFor act like our for loop
+

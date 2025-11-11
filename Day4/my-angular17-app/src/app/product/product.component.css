@@ -1,0 +1,19 @@
+/* product.component.css */
+.product-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  width: 260px;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}

@@ -76,8 +76,11 @@ When it’s time to deploy, `ng build` packages this into a **dist folder**, a c
 ### 🌱 Building Our First Angular Component in the Modern Framework World
 
 
-IN version 17
+**IN version 17
 ng new DFLStoreApp --version 17
+
+
+*npx @angular/cli@17 new my-angular17-app* Give you below structure
 
 Once your project is created, you’ll see a structure like this inside src/app:
 
@@ -180,3 +183,50 @@ Always remember — the vocabulary (pipes, services, directives) lives inside pa
 To create a new component use 
 ng generate component componentName 
 ex. ng generate component product-details
+
+
+
+ng generate component counter
+ng generate component product-details
+Angular CLI created four files per component:
+
+component.ts → The class
+component.html → The template
+component.css → The styles
+component.spec.ts → For testing
+Decorator: @Component marks it as a component.
+
+Selector: app-counter — this is how you reference it in HTML.
+
+Standalone = true → this component doesn’t need a module. Cool for modular development and reducing dependency chains.
+
+
+ Key analogy with Java / C#
+Java: JAR → Package → Class
+C#: DLL → Namespace → Class
+Angular: Angular library/package → Module → Component / Pipe / Directive / Service
+So when you hear “package” in Angular, mentally map it to “Angular library,” and modules are logical containers inside that library.
+
+Angular’s modular architecture isn’t just syntax — it’s discipline for maintainable front-end code, just like good package management in Java/C#. And the CLI commands (ng generate component/module/service/pipe) make it easy to scaffold these structures.
+
+**********
+Round brackets ( ) → event binding
+Square brackets [ ] → property binding (like [value]="count")
+Interpolation {{ }} → display current value
+Two-way binding [(ngModel)] allows input to sync dynamically
+*************
+
+
+***Rules of Thumb***:
+
+Round brackets (click) → Event binding (child triggers action).
+Square brackets [count] → Property binding (parent passes data to child).
+@Input() decorator → Declares that a property can receive value from parent.
+Public vs Private → Public is needed if Angular template must access it.
+TypeScript types → Keep everything safe. count: number prevents string assignment errors.
+
+
+
+
+
+
