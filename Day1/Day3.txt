@@ -166,3 +166,17 @@ Pipe				Formats data for display			Stylist / Formatter
 Interface			Defines structure of data			Blueprint / Contract
 
 
+ ---------------------------------------------------------------------------------
+
+First, you learn the grammar — how modules, decorators, and TypeScript fit together.
+Then you learn the vocabulary — the packages, pipes, and services available.
+Only when you are comfortable with both grammar and vocabulary, you can build complex applications and communicate effectively with Angular.
+
+
+Angular applications are built using TypeScript, but the real power comes from packages and modules provided by Angular CLI.
+
+Always remember — the vocabulary (pipes, services, directives) lives inside packages, and you need to import the correct module to use them.
+
+To create a new component use 
+ng generate component componentName 
+ex. ng generate component product-details

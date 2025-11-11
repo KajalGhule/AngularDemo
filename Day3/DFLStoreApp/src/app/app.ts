@@ -1,18 +1,18 @@
+import { CounterComponent } from './counter/counter.component';
 import { Component, signal } from '@angular/core';
-// import { RouterOutlet } from '@angular/router';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { FormsModule } from '@angular/forms';
+
+
 
   @Component({
     selector: 'app-root',
-    // imports: [RouterOutlet],
+    imports: [CounterComponent, ProductDetailsComponent, FormsModule],
     templateUrl: './app.html',
     styleUrl: './app.css'
   })
 
-// export class App {
-//   protected readonly title = signal('DFLStoreApp');
-// }
-
-
 export class AppComponent {
   title = 'Welcome to My First Angular App!';
+  initialCount:number = 0;
 }

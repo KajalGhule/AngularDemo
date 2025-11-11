@@ -1,1 +1,18 @@
 <h1>{{ title }}</h1>
+
+
+<!-- <app-counter [count]=10></app-counter> -->
+
+<app-product-details></app-product-details>
+
+<!-- <input type="number" [value]="300" />
+<app-counter></app-counter> -->
+
+
+<input type="number" [(ngModel)]="initialCount" placeholder="Enter start count" />
+<app-counter [count]="initialCount"></app-counter>
+
+
+<!-- <app-product-details [id]="21" [title]="Rose"
+ [description]="Valentine Flower" [price]="45"
+  [likes]="67000"   [imageurl]="/images/rose.jpg" ></app-product-details> -->
