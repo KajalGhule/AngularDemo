@@ -1,1 +1,190 @@
 Day5
+
+*event-driven architecture*
+
+Take a Button, for example. A Button is a class → we create its object → it becomes a control on UI. That button has two sides — 1️⃣ State — like enabled, disabled, text, color 2️⃣ Events — like click, doubleClick, focus, blur
+
+So when you click the button, what happens? Some event is triggered, and then some other part of the system listens and reacts.
+
+That’s event-driven architecture.
+
+/*
+
+
+export class CounterComponent {
+
+    //data member
+
+    @Input() count:number=0;
+    @Output() update=new EventEmitter();
+
+   //Event handlers, Event listeners, Callback functions
+
+   //Event handlers
+    increment(){ 
+      this.count++;
+      this.update.emit({count:this.count});
+    }
+    decrement(){
+      this.count--;
+      this.update.emit({count:this.count});
+    }
+}
+
+
+*/
+
+
+@Output() countChanged = new EventEmitter<number>();
+
+What is this EventEmitter? 
+It’s imported from '@angular/core'. So yes — it’s a class. A special Angular-provided class that helps us define custom events.
+
+
+this.countChanged.emit(this.counter);
+
+that’s your trigger point. This is where your component says,
+“Hey, something changed here — whoever’s listening, please react!”
+
+
+Mentor (asking students): Now tell me — If one component emits an event, who’s going to handle it?
+
+Exactly — another component! Maybe the parent component that’s listening for it.
+
+*So this is the key idea: 📤 One component emits an event 📥 Another component listens and reacts*
+-----------------------------------------------------------------------
+
+Mentor (pauses, then softly adds): And before I wrap up, one small thing, a best practice. When you name your custom event, don’t start with “on” — like onChange or onClick.
+
+That’s the handler’s name, not the event’s name.
+
+The event name should be a verb, describing what happened.
+
+So instead of:
+
+@Output() onCountChange = new EventEmitter<number>();
+Prefer:
+
+@Output() countChanged = new EventEmitter<number>();
+Sounds cleaner, more semantic, and matches Angular conventions.
+
+------------------------------------------------------------------
+
+
+So remember — In Angular, every @Output() with EventEmitter is your way of saying:
+
+“I’m alive. I respond. I communicate.”
+
+That’s the spirit of event-driven UI — from C++ callbacks, to C# delegates, to ASP.NET controls, and now to Angular components.
+
+	
+onUpdate(data: any) {
+  if (data) {
+    this.product.likes = data.count;
+  }
+}
+
+“This function will be called when the event occurs.”
+
+here our onUpdate() acts as a callback for the event emitted by CounterComponent.
+----------------------------------------------------------------
+
+export class ProductDetailsComponent implements OnInit {
+  ngOnInit(): void {
+    // initialization logic here
+  }
+}
+
+ OnInit? This is not an event, but it behaves like one. It’s an interface — given by Angular to hook into a component lifecycle event.
+
+When you implement OnInit, Angular expects you to override the method ngOnInit(). And that method runs automatically when the component gets initialized.
+
+📦 Component Lifecycle Hook = Interface + Auto Triggered Method
+
+Example: OnInit → ngOnInit() OnDestroy → ngOnDestroy()
+
+
+
+So if tomorrow you want to fetch data from a REST API before your component appears, where will you write that logic? Exactly — inside ngOnInit().
+
+
+----------------------------------------------------------------------
+
+So, today we’ve seen that:
+
+Java’s ActionListener = Angular’s EventEmitter + @Output + Callback
+Java’s Interface method = Angular’s Lifecycle Interface (OnInit)
+And the best part — TypeScript lets us blend object-oriented structure with event-driven design.
+So, your ProductComponent now behaves like a small intelligent UI object — it knows how to emit events, listen to changes, and initialize itself gracefully.
+
+That’s the essence of modern UI architecture.
+
+---------------------------------------------------------
+Let’s imagine this: You’re building a product dashboard. On that dashboard, you have two components —
+
+1️⃣ CounterComponent → where user clicks on “Like” button. 2️⃣ ProductComponent → which shows how many likes that product has received.
+
+Now, both are Angular components. Both are objects. And like any good object in OOP, they have state and behavior.
+
+But here’s the problem — when you click the “Like” button inside the CounterComponent, how does ProductComponent know that something has changed?
+
+They are not directly connected like two functions calling each other. They are connected through Angular’s event system.
+
+In the old days, when we wrote C++, we used callback functions for this. In C#, we used delegates and events. In ASP.NET WebForms, we used things like OnClick, OnSelectedIndexChanged.
+
+And when we came into the modern Angular world, we were introduced to this magical class called EventEmitter.
+
+@Output() countChanged = new EventEmitter<number>();
+
+It’s like raising your hand in a classroom. The @Output decorator marks your hand as visible to others. And the EventEmitter actually sends the message.
+
+-------------------------------------------------
+
+You’ve got your property binding:
+[ count ]="product.likes"
+You’ve got your event binding for the update event:
+(update)="onUpdate($event)"
+
+----------------------------
+
+Here, your custom event is called update — simple, meaningful, and intuitive. And notice how you’re binding it to a listener function:
+
+(update)="$event"
+
+That $event — this little dollar sign — is super important.
+
+Whatever object your component emits — whether it’s a number, a string, or a JSON object — $event carries it to your handler function.
+
+In TypeScript/Angular, you write:
+this.update.emit({ count: this.product.likes });
+
+and in the parent HTML:
+(update)="onUpdate($event)"
+
+
+Now, look at the input property:
+
+@Input() product: Product;
+
+Because data flows from parent to child using property binding.
+
+Imagine you want to display a list of products:
+
+The parent component has an array of products.
+Each child component — ProductDetailsComponent — receives a single product via @Input().
+This way, each child component is isolated, manages its own state, and still reacts to updates.
+This is component-based architecture in Angular — it’s like a mini OOP system inside the UI.
+
+--------------------------------------------------------------
+
+
+So when you see multiple products on the screen, each ProductDetailsComponent is an object in this component tree.
+
+Each object has state (product.likes, product.title, product.imageUrl)
+Each object has events (update)
+Angular’s Ivy engine efficiently updates only the affected nodes in the DOM — not the entire page!
+So, what we’ve achieved here is a data-first approach:
+
+1️⃣ Define your entities first — like Product. 2️⃣ Pass these entities to components via @Input(). 3️⃣ Emit events to communicate changes back to the parent. 4️⃣ Let the Angular engine (Ivy) take care of rendering efficiently.
+
+This is how enterprise-level Angular applications work.
