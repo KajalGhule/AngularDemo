@@ -188,3 +188,31 @@ So, what we’ve achieved here is a data-first approach:
 1️⃣ Define your entities first — like Product. 2️⃣ Pass these entities to components via @Input(). 3️⃣ Emit events to communicate changes back to the parent. 4️⃣ Let the Angular engine (Ivy) take care of rendering efficiently.
 
 This is how enterprise-level Angular applications work.
+
+----------------------------------------------------------------
+
+Why Angular 17 is faster:
+
+Angular now uses Vite instead of Webpack for building.
+
+Vite + ESBuild does tree shaking — it automatically removes unused code.
+
+Imagine a tree in your garden: you shake it, old leaves drop — same idea, Angular keeps only what your app actually uses.
+So, if you import CommonModule but only use NgFor, only NgFor code ends up in the final bundle.
+
+Result: smaller JS bundles, faster loading, optimized performance.
+
+-------------------------------------------------------------------
+
+
+1️⃣ Main.ts – The Entry Point
+Main.ts is the entry point of your Angular app.
+
+Here, you decide which component will bootstrap first — usually AppComponent, but you could choose ListComponent or any other.
+
+The flow:
+
+Browser loads index.html first.
+Browser sees <app-root> (or your chosen selector).
+Angular’s V8 engine executes main.js (compiled from main.ts).
+Angular bootstraps the chosen component and renders the view.
