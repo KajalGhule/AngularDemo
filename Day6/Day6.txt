@@ -1,0 +1,99 @@
+Day6
+
+dependencies make your app run.
+
+devDependencies make your app ready to run — tested, optimized, and production-ready.
+
+Understanding this difference transforms you from a developer to a solution architect. Because now you don’t just “use Angular,” you understand how Angular gets built, tested, and delivered.
+
+-----------------------------------------------
+
+Angular 17 does this using a combination of:
+
+Webpack (via @angular-devkit/build-angular)
+ESBuild (newer optimization engine)
+TypeScript Compiler + Static Analysis
+
+So if you never used a directive, pipe, or component — it never makes it into your final build.
+
+-----------------------------------------------------
+
+Testing
+
+1. Jasmine — The Testing Framework
+
+2. Karma — The Test Runner
+
+| Tool        | Type              | Role in Angular Testing                                     |
+| ----------- | ----------------- | ----------------------------------------------------------- |
+| **Jasmine** | Testing Framework | Write and structure test cases (`describe`, `it`, `expect`) |
+| **Karma**   | Test Runner       | Executes tests in browsers and reports results              |
+
+
+Jasmine helps you write tests.
+Karma helps you run tests.
+
+----------------------------------------------------------------------
+
+TypeScript Transpiler — The Language Interpreter
+Before all this happens, there’s the TypeScript transpiler (version 5.4 in Angular 17). It’s the translator that converts TypeScript (which browsers don’t understand) into plain JavaScript (which browsers do understand).
+
+Angular calls upon:
+
+Jasmine 🧩 to define and run your unit test cases
+Karma 🚀 to execute those tests in real browsers
+TypeScript Compiler 🧠 to transpile your code before testing
+----------------------------------------------------------
+
+
+ng g module catalog --routing
+Give me two files 1. catalog.module.ts
+		  2. catalog-routing.module.ts
+
+D:\AngularDemo\Day6\E-Shop>ng g module catalog --routing
+CREATE src/app/catalog/catalog-routing.module.ts (260 bytes)
+CREATE src/app/catalog/catalog.module.ts (298 bytes)
+
+ng g class catalog/models/product --type=model
+
+D:\AngularDemo\Day6\E-Shop>ng g class catalog/models/product --type=model
+CREATE src/app/catalog/models/product.model.spec.ts (171 bytes)
+CREATE src/app/catalog/models/product.model.ts (27 bytes)
+
+
+ng g component catalog/components/product/list
+
+ng g service catalog/services/product-hub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
