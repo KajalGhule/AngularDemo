@@ -65,11 +65,38 @@ ng g component catalog/components/product/list
 
 ng g service catalog/services/product-hub
 
+-----------------------------------------------------
+
+**CREATE A ESTORE** (Day6 notes)
+
+ng generate module membership
+ng generate module product-catalog
+ng generate module shared
+
+ng generate component product-catalog/list
+ng generate component product-catalog/details
+ng generate component product-catalog/insert
+ng generate component product-catalog/update
+ng generate service product-catalog/product
+ng generate service product-catalog/recommendation
+
+
+ng generate pipe shared/currency-format
+ng generate directive shared/highlight
+ng generate component shared/navbar
 
 
 
 
 
+
+-----------------------------------------
+Components → UI Layer
+Services → Business Logic Layer
+Models → Data Layer
+Modules → Organizational Layer
+Routing → Communication Layer
+Shared → Common Utilities
 
 
 
