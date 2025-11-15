@@ -181,7 +181,7 @@ Angular applications are built using TypeScript, but the real power comes from p
 Always remember — the vocabulary (pipes, services, directives) lives inside packages, and you need to import the correct module to use them.
 
 To create a new component use 
-ng generate component componentName 
+**ng generate component componentName 
 ex. ng generate component product-details
 
 

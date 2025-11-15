@@ -1,0 +1,29 @@
+Day7Project
+
+
+ng generate module membership
+
+ng generate component membership/login
+ng generate component membership/register
+ng generate component membership/forgot-password
+ng generate component membership/change-password
+ng generate service membership/auth
+ng generate class membership/models/customer
+
+
+
+
+
+
+
+
+
+
+Key Learning Points for Students
+Use *ngFor="let item of items" for structural iteration.
+Apply *ngFor on container elements (e.g., <div> or <tr>).
+Use @Input() properties for parent-to-child data communication.
+Handle nullable values safely in TypeScript.
+Modularize UI components like Cart and CartItem for reusability.
+Always practice while learning — that’s where real understanding develops.
+Maintain your GitHub repository actively for mentor feedback and collaboration.

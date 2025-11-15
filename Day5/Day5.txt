@@ -216,3 +216,39 @@ Browser loads index.html first.
 Browser sees <app-root> (or your chosen selector).
 Angular’s V8 engine executes main.js (compiled from main.ts).
 Angular bootstraps the chosen component and renders the view.
+
+
+
+
+2️⃣ Component Loading Flow
+Components load hierarchically:
+
+AppComponent → uses selectors → loads ProductListComponent.
+ProductListComponent → iterates via *ngFor → loads ProductDetailsComponent.
+ProductDetailsComponent → may have child components like CounterComponent.
+
+Mentally, visualize it like a tree: the root is AppComponent, and branches are nested components. Each branch may have leaves (child components).
+
+
+3️⃣ Angular 17 Build Process
+Angular 17 uses Vite + ESBuild instead of Webpack.
+
+Key feature: Tree Shaking
+
+Only the code you actually use (like NgFor) ends up in your final JS bundle.
+Helps reduce bundle size, increase performance, and avoid unused code.
+Analogy: Shake a real tree — old leaves fall off. Angular “shakes” the modules and keeps only what’s used.
+
+
+
+4️⃣ Modular Architecture & Best Practices
+For small apps: standalone components may suffice.
+
+For enterprise apps (team of developers):
+
+Use CommonModule for directives (NgFor, NgIf)
+Keep code modular, type-safe, and clean
+Avoid shortcuts that may increase complexity or reduce maintainability
+Goal: Write simple, readable, and scalable code, letting Angular handle optimizations.
+
+
