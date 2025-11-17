@@ -132,3 +132,33 @@ RouterOutlet	The stage – where the new component will be displayed
 RouterLink	The doorbell – tells Angular to navigate when clicked
 Route Params	Passes data inside the URL (/users/10)
 Route Guards	Security guards – allow or block entry
+
+-----------------------------
+
+Why are companies using Angular, React, or Vue instead of server pages?
+Because the industry changed.
+
+Earlier:
+
+Business logic + UI were tightly coupled.
+Technologies like ASP.NET, JSP, PHP, MVC generated a new web page for every request.
+This was called MPA — Multi Page Application.
+Now:
+
+The logic lives in the cloud as REST APIs / Web APIs.
+Front-end frameworks like Angular/React consume these APIs.
+They render the UI on the browser dynamically.
+This UI doesn’t reload an entire page — it only swaps components.
+
+----------------------------------------
+
+
+MPA vs SPA (Simple Analogy)
+Feature			MPA (Multi Page App)		SPA (Single Page App)
+Technology	ASP.NET, JSP, PHP, MVC			Angular, React, Vue
+Interaction	Every click → Server returns a 	        Only one index.html, components inside it change
+		new .html/.aspx page	
+Page Refresh	Full page reload each time		No full reload — only component changes
+URL Behaviour	Different physical pages		Same page, different virtual routes
+Experience	Slow, clunky on mobiles			Smooth, app-like
+
