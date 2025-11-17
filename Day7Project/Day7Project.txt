@@ -14,6 +14,17 @@ ng generate class membership/models/customer
 
 
 
+ng generate module catalog
+
+ng generate class catalog/models/product
+ng generate component catalog/products/counter
+ng generate component catalog/products/list
+ng generate component catalog/products/details
+ng generate component catalog/products/insert
+ng generate component catalog/products/update
+ng generate service catalog/product
+
+
 
 
 
@@ -27,3 +38,97 @@ Handle nullable values safely in TypeScript.
 Modularize UI components like Cart and CartItem for reusability.
 Always practice while learning — that’s where real understanding develops.
 Maintain your GitHub repository actively for mentor feedback and collaboration.
+
+
+----------------------------------------------------------------
+
+
+DAY8
+
+
+Session objective (short)
+Single Page App (SPA): one HTML shell — Angular updates view by swapping components, not reloading the page.
+
+Router outlet: the placeholder (<router-outlet>) where routed components render.
+
+routerLink: anchor that updates URL without full reload.
+
+Route parameters: pass IDs (like details/12) so the detail component knows which product to show.
+
+Child routes: nested routes for dashboards and its charts.
+
+localStorage: simple persistence for “logged in” state used to personalize the UI.
+
+Guards (optional): protect routes such as Dashboard (only for logged-in users).
+
+
+--------------------------------------------
+
+MPA vs SPA – Which One Should You Choose?
+Imagine you’re advising a startup team. You ask them a few questions:
+
+Decision Factor				SPA (Single Page App) 🏙️	MPA (Multi Page App) 🏘️
+Complex features? (like Gmail)			✅ Yes				❌ Not ideal
+Lots of content? (like news, blogs)		❌ Not necessary		✅ Perfect fit
+SEO very important?				Needs extra effort		✅ Naturally good
+Faster to build?				✅ Yes, once setup is done	❌ No, more time needed
+Works on old browsers/devices?			❌ Not always			✅ Yes
+Real-time updates & smooth UI?			✅ SPA wins			❌ MPA feels slower
+
+
+------------------------------------------------------
+
+“Choosing between SPA and MPA is not about popularity. It’s about suitability.”
+
+If your app needs real-time updates, dashboards, or smooth user experience → Go with SPA.
+If your app deals with search engine traffic, lots of content, or simpler workflows → MPA is a wise choice.
+Both are tools. Great engineers know when to use which tool.
+
+--------------------------------
+
+ SPA vs MPA – Quick Mentor Comparison
+Feature			SPA (Smart City 🏙️)	MPA (Traditional City 🏘️)
+Page Reload on Click		❌ No		✅ Yes
+Initial Load Time		⏳ Slower	⚡ Faster
+After-Load Speed		⚡ Very Fast	⏳ Slower
+SEO Friendly			❌ Needs work	✅ Yes
+Server Load			✅ Lower	❌ Higher
+Real-Time Features		✅ Better	❌ Harder
+Works Without JS		❌ No		✅ Yes
+Development Complexity		✅ Modern Tools	❌ Simpler, but large code
+
+-----------------------------------------------
+
+What is Routing? – In Simple Words
+Routing in Angular is like having many rooms inside one house. You don’t go outside every time — you just walk from one room to another.
+
+No full-page refresh
+Only the content inside main area changes
+It makes apps look like real desktop/mobile apps
+Technically: Routing maps a URL path → Component.
+
+Example: /home → HomeComponent /contacts → ContactListComponent
+
+-------------------------------
+
+Why Routing Is Important?
+Benefit				Story Explanation
+✅ Fast page transitions	No full reload = quick movement like sliding doors inside a mall
+✅ Better User Experience	Feels smooth, app-like, without blinking screens
+✅ Modular & Maintainable	Each page = a separate component = easy to manage
+✅ Dynamic Data			You can show data based on URLs like /products/101
+✅ Route Guards			You can stop people from entering restricted rooms without permission
+
+------------------------------------------------------
+
+
+Core Players in Angular Routing
+Let me introduce you to the heroes of routing…
+
+Hero		Role
+Routes		The map – defines which URL links to which component
+Router		The guide – listens to URL changes and loads components
+RouterOutlet	The stage – where the new component will be displayed
+RouterLink	The doorbell – tells Angular to navigate when clicked
+Route Params	Passes data inside the URL (/users/10)
+Route Guards	Security guards – allow or block entry

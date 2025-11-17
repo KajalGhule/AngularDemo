@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MembershipModule } from './membership/membership.module';
-
+import { CatalogModule } from './catalog/catalog.module';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, MembershipModule],
+  imports: [RouterOutlet, CommonModule, MembershipModule, CatalogModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
