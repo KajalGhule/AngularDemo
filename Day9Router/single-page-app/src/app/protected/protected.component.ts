@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-protected',
@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
   templateUrl: './protected.component.html',
   styleUrl: './protected.component.css'
 })
-export class ProtectedComponent {
+export class ProtectedComponent implements OnInit {
 
+  constructor() { }
+  ngOnInit(): void {
+  }
 }

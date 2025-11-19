@@ -5,6 +5,11 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
+import { UpdateComponent } from './update/update.component';
+import { DeleteComponent } from './delete/delete.component';
+import { ProtectedComponent } from './protected/protected.component';
+import { LoggedInGuardService } from './logged-in-guard.service';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
     // {path:'', redirectTo:'home',pathMatch:"full"},
@@ -18,7 +23,12 @@ export const routes: Routes = [
         component: ListComponent,
                     children: [
                         { path: 'details/:id', component: DetailsComponent },
-                        // { path: 'update/:id', component: UpdateComponent }
+                        { path: 'update/:id', component: UpdateComponent },
+                        { path: 'delete/:id', component: DeleteComponent }
                     ]
-        },
+    },
+
+    // { path: 'protected',component: ProtectedComponent,canActivate: [LoggedInGuardService]}, //secure Routing
+    
+    { path: 'protected',component: ProtectedComponent,canActivate: [authGuard]}
 ];

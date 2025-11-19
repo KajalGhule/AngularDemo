@@ -1,0 +1,19 @@
+Day10
+
+
+Our Focus Today: Directives + Extension Mindset
+Before we jump deep into advanced modules or lazy loading or guards, I want you to master this core idea:
+
+Directives are what make Angular extendable.
+
+Components are just one form of directive — the one with a view. But there are others — structural directives like *ngIf, *ngFor, and attribute directives like [ngClass], [ngStyle], or your own custom directive.
+
+-------------------------------------
+
+Why Some Directives Have a Star (*)
+You may have noticed — some directives like *ngIf and *ngFor have that little star in front of them. Why?
+
+Because those are structural directives. They change the structure of the DOM itself — adding, removing, or re-creating elements dynamically.
+
+Whereas directives like [ngModel], [ngClass], [ngStyle], or even [disabled] — these are attribute directives. They don’t create or destroy elements; instead, they modify the behavior or appearance of existing ones.
+
