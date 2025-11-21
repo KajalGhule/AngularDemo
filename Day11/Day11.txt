@@ -2,3 +2,75 @@ Day11
 
 
 ng generate module custom
+
+ng generate module shared
+
+ng generate component shared/conditional
+
+
+ng generate module custom → creates a reusable logical boundary.
+ng generate module shared → creates a shared space for common directives, pipes, and components.
+ng generate component shared/conditional → creates a new component inside shared.
+Declare and export it in the module → makes it available across the app.
+
+ under @NgModule, you see three important sections: imports, declarations, and exports.
+
+@NgModule({
+  declarations: [ConditionalComponent],
+  imports: [CommonModule],
+  exports: [ConditionalComponent]
+})
+export class SharedModule { }
+
+
+----------------------------------------
+
+I walked to the whiteboard and drew two columns.
+
+Structural Directives (with *)	Attribute Directives (no *)
+*ngIf	[ngStyle]
+*ngFor	[ngClass]
+*ngSwitchCase	appHighlight (custom)
+“Now, look carefully,” I said. “Some directives begin with a star (★) — like *ngIf or *ngFor. That star means Angular will add or remove elements from the DOM — these are called Structural Directives.
+
+Others, like [ngSwitch] or [ngClass], don’t change the DOM structure — they just change the appearance or behavior of existing elements. Those are Attribute Directives.”
+
+
+--------------------------------------------
+
+So when you write something like this:”
+
+<div *ngIf="isFlowerAvailable()">Welcome to Transflower</div>
+“You’re not just checking a condition. You’re declaring what to do when that condition is true or false — that’s called declarative programming.
+
+---------------------
+
+*“A component is like a brain — it holds thought (logic) and memory (data). A template is like a face — it shows what the brain thinks. And directives are expressions on that face — showing emotions depending on conditions.”*
+
+---------------
+
+Structural Directives are like construction workers — they can build new rooms, remove walls, or decide which rooms are visible.
+Attribute Directives, on the other hand, are like painters and decorators — they don’t change the structure of your house, but they modify its look or behavior.
+
+-----------------------
+structural directives
+
+examples are:
+
+*ngIf
+*ngFor
+*ngSwitchCase
+*ngSwitchDefault
+---------------------------------
+
+Attribute directives
+
+Some examples:
+
+ngModel
+ngStyle
+ngClass
+ngTemplate
+hidden
+
+
