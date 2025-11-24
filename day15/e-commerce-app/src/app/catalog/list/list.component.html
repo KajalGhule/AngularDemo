@@ -1,0 +1,11 @@
+<p>list works!</p>
+
+<h2>Flower List</h2>
+
+<div *ngFor="let f of flowers">
+  <p>{{ f.title }} - {{ f.price }}</p>
+
+  <button [routerLink]="['/catalog/detail', f.id]">
+    Details
+  </button>
+</div>

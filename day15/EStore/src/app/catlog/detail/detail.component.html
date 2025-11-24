@@ -1,0 +1,12 @@
+<p>detail works!</p>
+
+
+<h2>Flower Details</h2>
+
+<div *ngIf="flower">
+  <p><b>Name:</b> {{ flower.title }}</p>
+  <p><b>Price:</b> {{ flower.price }}</p>
+  <p><b>Description:</b> {{ flower.description }}</p>
+</div>
+
+<button routerLink="/list">Back</button>
