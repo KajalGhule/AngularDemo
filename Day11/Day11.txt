@@ -74,3 +74,10 @@ ngTemplate
 hidden
 
 
+----------------------------------
+
+Directives = Behavioral instructions to the DOM.
+Component Directives = Directives + their own template + style + logic.
+Use Directives inside Components, never directly in index.html.
+Every component is a directive, but not vice versa.
+

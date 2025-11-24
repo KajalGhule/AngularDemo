@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { GraphicsModule } from './graphics/graphics.module';
-// import { GdiComponent } from './graphics/gdi/gdi.component';
 @Component({
   selector: 'app-root',
   standalone: true,

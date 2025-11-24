@@ -1,0 +1,56 @@
+Day13
+
+Understanding ngAfterViewInit()
+
+ngOnInit() is like the time when the class starts.
+
+You (the component) become alive.
+Inputs arrive.
+Data properties get set.
+Initialization logic can be done.
+But the classroom (template) is not yet fully arranged.
+
+So if you ask a student:
+
+“Give me the chalk!”
+
+But the chalk has not yet been placed on the teacher’s table…
+
+You will get undefined. That’s what happens if you try to access @ViewChild() here.
+
+-------------------------------------
+
+ngAfterViewInit()
+Why is it special?
+
+Because this is the first moment when Angular guarantees that your component’s template (view) is fully created.
+It is the perfect place where Angular tells you: “Your view is ready. You may now touch the DOM safely.”
+------------------------------------
+
+1. ElementRef — “Give me the actual element!”
+
+2. @ViewChild — “Connect the TS file to the HTML element”
+
+3. ngAfterViewInit — “Wait until the template is ready!”
+
+-------------------------------*
+***********Understanding ngClass & ngStyle*******************
+
+1. ngClass — Dresses Your Elements Based on Logic
+
+2. ngStyle — Fine-tune the Look Inline
+
+
+“If ngClass gives clothes, ngStyle gives makeup.”
+
+---------------------------------------------------------
+
+the heroes of today’s story were
+
+ngClass – choose CSS classes dynamically ✨
+ngStyle – change individual CSS properties ✨ 
+SharedModule + export – to share components ✨ 
+Event handling – to toggle UI changes ✨ 
+Component-level CSS – clean, isolated, atomic
+
+
