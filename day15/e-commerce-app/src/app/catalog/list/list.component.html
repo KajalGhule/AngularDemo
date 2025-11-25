@@ -1,11 +1,28 @@
-<p>list works!</p>
-
+<!-- 
 <h2>Flower List</h2>
-
+<button routerLink="/catalog/add">Add New Flower</button>
 <div *ngFor="let f of flowers">
   <p>{{ f.title }} - {{ f.price }}</p>
+  
+  <img src="{{f.imageurl}}" width="200" height="200"/>
 
   <button [routerLink]="['/catalog/detail', f.id]">
     Details
   </button>
+</div> -->
+
+<h2>🌸 Flower List</h2>
+
+<button routerLink="/catalog/add" class="add-btn">Add New Flower</button>
+
+<div class="grid">
+
+  <div class="item" *ngFor="let f of flowers">
+    <img [src]="f.imageurl" class="flower-img">
+    <h3>{{ f.title }}</h3>
+    <p>₹ {{ f.price }}</p>
+
+    <button [routerLink]="['/catalog/detail', f.id]">Details</button>
+  </div>
+
 </div>

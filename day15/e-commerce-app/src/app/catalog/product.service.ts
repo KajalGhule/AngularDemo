@@ -26,4 +26,9 @@ export class ProductService {
   delete(id: string) {
     return this.http.delete(`${this.BASE_URL}/${id}`);
   }
+
+  add(product: Product) {
+    return this.http.post<Product>(this.BASE_URL, product);
+  }
+
 }

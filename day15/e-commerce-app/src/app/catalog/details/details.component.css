@@ -1,0 +1,92 @@
+
+.details-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.details-card {
+  background: #ffffff;
+  width: 380px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 24px;
+  color: #444;
+}
+
+.flower-img {
+  width: 100%;
+  height: 260px;
+  /* object-fit: cover; */
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.info p {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.btn-group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 32%;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.back {
+  background: #6c63ff;
+  color: white;
+}
+
+.back:hover {
+  background: #584de2;
+}
+
+.update {
+  background: #00c853;
+  color: white;
+}
+
+.update:hover {
+  background: #009c3e;
+}
+
+.delete {
+  background: #ff5252;
+  color: white;
+}
+
+.delete:hover {
+  background: #e04444;
+}
+
+.loading {
+  text-align: center;
+  padding: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

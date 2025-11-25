@@ -1,4 +1,4 @@
-<div *ngIf="!product">Loading…</div>
+<!-- <div *ngIf="!product">Loading…</div>
 
 <div class="container mt-4" *ngIf="product">
     <h2 class="mb-3">Update Product</h2>
@@ -19,13 +19,52 @@
             <label class="form-label">Price</label>
             <input type="number" class="form-control" name="price" [(ngModel)]="product.price" required>
         </div>
-
-        <!-- <div class="mb-3">
-            <label class="form-label">Image URL</label>
-            <input type="text" class="form-control" name="imageUrl" [(ngModel)]="product.imageurl">
-        </div> -->
+        
 
         <button class="btn btn-primary" type="submit">Update</button>
 
     </form>
+</div> -->
+
+
+
+<div *ngIf="!product" class="loading">Loading…</div>
+
+<div class="update-container" *ngIf="product">
+
+  <div class="update-card">
+
+    <h2 class="title">✎ Update Product</h2>
+
+    <form #productForm="ngForm" (ngSubmit)="onUpdate(product)">
+
+      <!-- Product ID -->
+      <div class="field">
+        <label>Product ID</label>
+        <input type="number" name="productId" [(ngModel)]="product.id" readonly />
+      </div>
+
+      <!-- Product Name -->
+      <div class="field">
+        <label>Product Name</label>
+        <input type="text" name="title" [(ngModel)]="product.title" required />
+      </div>
+
+      <!-- Price -->
+      <div class="field">
+        <label>Price</label>
+        <input type="number" name="price" [(ngModel)]="product.price" required />
+      </div>
+
+      <!-- Image Preview -->
+      <div class="preview" *ngIf="product.imageurl">
+        <img [src]="product.imageurl" alt="Preview" />
+      </div>
+
+      <button class="btn-submit" type="submit">Update</button>
+
+    </form>
+
+  </div>
+
 </div>

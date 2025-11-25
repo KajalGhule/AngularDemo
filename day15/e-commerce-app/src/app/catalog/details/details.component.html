@@ -1,4 +1,4 @@
-<p>details works!</p>
+<!-- <p>details works!</p>
 
 
 <h2>Flower Details</h2>
@@ -7,10 +7,41 @@
   <p><b>Name:</b> {{ flower.title }}</p>
   <p><b>Price:</b> {{ flower.price }}</p>
   <p><b>Description:</b> {{ flower.description }}</p>
-  <!-- <p><b>Price:</b> {{ flower.price }}</p> -->
+  
+   <img src="{{flower.imageurl}}" width="200" height="200"/>
   <p><b>Likes:</b> {{ flower.likes }}</p>
 </div>
 
 <button type="button" routerLink="/catalog/list">Back</button>
 <button type="button" [routerLink]="['/catalog/update', flower?.id]">Update</button>
-<button type="button" (click)="deleteFlower()">Delete</button>
+<button type="button" (click)="deleteFlower()">Delete</button> -->
+
+
+<div class="details-container" *ngIf="flower">
+
+  <div class="details-card">
+
+    <h2 class="title">🌸 Flower Details</h2>
+
+    <img [src]="flower.imageurl" alt="Flower" class="flower-img" />
+
+    <div class="info">
+      <p><b>Name:</b> {{ flower.title }}</p>
+      <p><b>Price:</b> ₹ {{ flower.price }}</p>
+      <p><b>Description:</b> {{ flower.description }}</p>
+      <p><b>Likes:</b> {{ flower.likes }}</p>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn back" routerLink="/catalog/list">← Back</button>
+      <button class="btn update" [routerLink]="['/catalog/update', flower?.id]">✎ Update</button>
+      <button class="btn delete" (click)="deleteFlower()">🗑 Delete</button>
+    </div>
+
+  </div>
+
+</div>
+
+<div *ngIf="!flower" class="loading">
+  Loading...
+</div>
