@@ -1,3 +1,46 @@
-<p>payment works!</p>
+<div class="payment-container">
 
+  <h2 class="title">💳 Choose Payment Method</h2>
 
+  <div class="select-box">
+    <label>Select Method</label>
+    <select [(ngModel)]="method">
+      <option value="">-- Select --</option>
+      <option value="CREDIT_CARD">Credit Card</option>
+      <option value="DEBIT_CARD">Debit Card</option>
+      <option value="UPI">UPI</option>
+    </select>
+  </div>
+
+  <!-- CREDIT CARD -->
+  <div class="payment-card" *ngIf="method === 'CREDIT_CARD'">
+    <h3>Credit Card Details</h3>
+
+    <input class="input" type="text" placeholder="Card Number" [(ngModel)]="cardNumber">
+    <input class="input" type="text" placeholder="Card Holder Name" [(ngModel)]="cardHolder">
+    <input class="input" type="text" placeholder="Expiry (MM/YY)" [(ngModel)]="expiry">
+  </div>
+
+  <!-- DEBIT CARD -->
+  <div class="payment-card" *ngIf="method === 'DEBIT_CARD'">
+    <h3>Debit Card Details</h3>
+
+    <input class="input" type="text" placeholder="Card Number" [(ngModel)]="cardNumber">
+    <input class="input" type="text" placeholder="Bank Name" [(ngModel)]="bankName">
+  </div>
+
+  <!-- UPI -->
+  <div class="payment-card" *ngIf="method === 'UPI'">
+    <h3>UPI Payment</h3>
+    <input class="input" type="text" placeholder="Enter UPI ID" [(ngModel)]="upiId">
+  </div>
+
+  <!-- TOTAL -->
+  <div class="total-box">
+    <label>Total Amount</label>
+    <input class="input" type="number" [(ngModel)]="amount" readonly>
+  </div>
+
+  <button class="pay-btn" (click)="makePayment()">Pay Now</button>
+
+</div>

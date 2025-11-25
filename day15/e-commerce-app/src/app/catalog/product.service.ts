@@ -8,6 +8,7 @@ import { Product } from './product';
 export class ProductService {
 
   private BASE_URL = 'http://localhost:8000/flowers';
+   
 
   constructor(private http: HttpClient) {}
 

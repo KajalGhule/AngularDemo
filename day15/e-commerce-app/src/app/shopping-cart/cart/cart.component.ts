@@ -103,6 +103,11 @@ export class CartComponent implements OnInit {
 
   payment(): void {
     console.log("payment proccessing call");
-    this.router.navigate(['/payment']);
+    this.router.navigate(['/payment'], {
+      state: { total: this.totalPrice }
+    }); 
+  }
+  backToShop(): void {
+    this.router.navigate(['/catalog/list']);  
   }
 }
