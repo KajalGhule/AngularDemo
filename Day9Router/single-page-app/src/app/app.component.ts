@@ -3,10 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ RouterOutlet, SignInComponent, CommonModule, RouterLink],
+  imports: [ RouterOutlet, SignInComponent, CommonModule, RouterLink, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

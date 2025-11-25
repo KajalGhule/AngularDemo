@@ -10,7 +10,7 @@ import { DeleteComponent } from './delete/delete.component';
 import { ProtectedComponent } from './protected/protected.component';
 import { LoggedInGuardService } from './logged-in-guard.service';
 import { authGuard } from './auth.guard';
-
+import { CartComponent } from './shopping-cart/cart/cart.component';
 export const routes: Routes = [
     // {path:'', redirectTo:'home',pathMatch:"full"},
     { path: 'home', component: HomeComponent },
@@ -29,6 +29,6 @@ export const routes: Routes = [
     },
 
     // { path: 'protected',component: ProtectedComponent,canActivate: [LoggedInGuardService]}, //secure Routing
-    
+    {path: 'addtocart', component: CartComponent,canActivate: [LoggedInGuardService]},
     { path: 'protected',component: ProtectedComponent,canActivate: [authGuard]}
 ];

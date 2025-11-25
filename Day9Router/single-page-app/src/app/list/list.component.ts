@@ -21,6 +21,7 @@ products:any[]=[]
 
   ngOnInit() {
     this.products = this.svc.getAllProducts();
+    
   }
 
 

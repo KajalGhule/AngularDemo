@@ -44,4 +44,5 @@ currentProductId:any;
     this.router.navigate(['lists/delete/', id]);
   }
 
+  
 }

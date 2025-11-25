@@ -20,8 +20,14 @@ export class InsertComponent {
   };
 
   constructor(private productService: ProductService, private router: Router) {}
+  
+  private generateUniqueInt(): number {
+    // return Date.now() + Math.floor(Math.random() * 1000);
+    return Number(Math.floor(Math.random() * 90000) + 10000); // 5-digit random
+  }
 
   onAdd() {
+    this.product.id = this.generateUniqueInt();
     this.productService.add(this.product).subscribe({
       next: () => {
         alert('Product added successfully!');

@@ -2,3 +2,62 @@ day15
 
 
 Observer Pattern — The Heart of RxJS
+
+Imagine I (the mentor) am the “Subject / Observable”. You — the students — are the Observers.
+
+
+One event → multiple listeners → multiple reactions
+
+That, my friends, is the Observer Pattern.
+
+
+
+A Subject is both:
+
+An Observable (it can broadcast)
+An Observer (it can listen to other observables)
+
+
+BehaviorSubject -> It always holds the most recent value.
+
+-------------------------------
+
+The Campus Life of RxJS Operators
+1. map() — The Transformer -> Transforms input into something new.
+example :: If input is marks: 50 map(x => x + 10) transforms it to 60.
+source$
+  .pipe(map(x => x * 2))
+  .subscribe(console.log);
+
+2. filter() — The Security Guard
+Allow only specific people to pass.
+source$
+  .pipe(filter(score => score > 80))
+  .subscribe(console.log);
+
+3. debounceTime() — The Smart Listener
+Ignore fast repeated inputs and respond only when things settle down.
+
+debounceTime(300ms) waits until user stops typing for 300ms and then fires only once.
+
+In code:
+
+input$
+  .pipe(debounceTime(300))
+  .subscribe(search);
+
+4. merge() — The Friendly Combiner
+Combine multiple streams and send them out together.”
+merge(click$, shortcut$, voice$)
+  .subscribe(doAction);
+
+
+5. switchMap() — The Campus Topper
+ Whenever a new request comes, cancel the previous one and switch to the latest.
+
+
+6. combineLatest() — Group Study
+Whenever ANY of you updates your notes, the group gets the latest combo.
+
+7. takeUntil() — The Class Bell
+ Once the bell rings, all subscriptions stop automatically.

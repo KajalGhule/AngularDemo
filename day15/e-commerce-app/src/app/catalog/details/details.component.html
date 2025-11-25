@@ -36,6 +36,7 @@
       <button class="btn back" routerLink="/catalog/list">← Back</button>
       <button class="btn update" [routerLink]="['/catalog/update', flower?.id]">✎ Update</button>
       <button class="btn delete" (click)="deleteFlower()">🗑 Delete</button>
+      <button  (click)="addToCart()">add to cart</button>
     </div>
 
   </div>
