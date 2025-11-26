@@ -110,4 +110,9 @@ export class CartComponent implements OnInit {
   backToShop(): void {
     this.router.navigate(['/catalog/list']);  
   }
+  
+  orderNow(): void {
+    console.log("order now proccessing call");
+    this.router.navigate(['/order']); 
+  }
 }
