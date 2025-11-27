@@ -16,27 +16,24 @@ export class OrderListComponent implements OnInit {
   constructor(private orderService: OrderService, private productService: ProductService) {}
 
   ngOnInit(): void {
-  this.loadOrders();
-}
+    this.loadOrders();
+  }
 
-loadOrders() {
-  this.orderService.getAllOrders().subscribe((orders: any[]) => {
-    this.orders = orders;
-     this.orders = orders.filter(order => order.status === 'PENDING');
-    this.orders.forEach(order => {
-      order.items.forEach((item: any) => {
+  loadOrders() {
+    this.orderService.getAllOrders().subscribe((orders: any[]) => {
+      this.orders = orders;
+       this.orders = orders.filter(order => order.status === 'PENDING');
+      this.orders.forEach(order => {
+        order.items.forEach((item: any) => {
 
-        this.productService.getFlowerById(item.productId)
-          .subscribe(product => {
-            item.productDetails = product;   // attach product info
-          });
-
+          this.productService.getFlowerById(item.productId)
+            .subscribe(product => {
+              item.productDetails = product;   // attach product info
+            });
+        });
       });
     });
-
-  });
-}
-
+  }
 
   approve(id: number) {
     this.orderService.approveOrder(id).subscribe(() => {
