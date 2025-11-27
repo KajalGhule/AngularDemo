@@ -1,0 +1,35 @@
+<h2 class="page-title">Pending Orders</h2>
+
+<div class="orders-container">
+  <div class="order-card" *ngFor="let order of orders">
+    
+    <div class="order-header">
+      <span class="order-id">Order #{{ order.id }}</span>
+      <span class="order-status">{{ order.status }}</span>
+    </div>
+
+    <div class="items-box">
+      <div class="item-row" *ngFor="let item of order.items">
+
+        <img
+          class="item-img"
+          *ngIf="item.productDetails"
+          [src]="item.productDetails.imageurl"
+        />
+
+        <div class="item-info">
+          <h4>{{ item.productDetails?.title }}</h4>
+          <p>Qty: {{ item.qty }}</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn approve" (click)="approve(order.id)" [disabled]="order.status !== 'PENDING'">Approve</button>
+      <button class="btn reject" (click)="reject(order.id)" [disabled]="order.status !== 'PENDING'">Reject</button>
+      <button class="btn cancel" (click)="cancel(order.id)" [disabled]="order.status !== 'PENDING'">Cancel</button>
+    </div>
+
+  </div>
+</div>

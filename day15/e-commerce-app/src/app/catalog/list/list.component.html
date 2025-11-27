@@ -1,20 +1,9 @@
-<!-- 
-<h2>Flower List</h2>
-<button routerLink="/catalog/add">Add New Flower</button>
-<div *ngFor="let f of flowers">
-  <p>{{ f.title }} - {{ f.price }}</p>
-  
-  <img src="{{f.imageurl}}" width="200" height="200"/>
-
-  <button [routerLink]="['/catalog/detail', f.id]">
-    Details
-  </button>
-</div> -->
 
 <h2>🌸 Flower List</h2>
 
 <button routerLink="/catalog/add" class="add-btn">Add New Flower</button>
 <button routerLink="/cart" class="cart-btn">Show Cart</button>
+<button routerLink="/orders" class="cart-btn">Show Pending Orders</button>
 
 <div class="grid">
 

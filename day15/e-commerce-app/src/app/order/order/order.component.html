@@ -32,13 +32,9 @@
                width="70"
                class="rounded">
         </td>
-
         <td>{{ item.title }}</td>
-
         <td>{{ item.price }}</td>
-
         <td>{{ item.quantity }}</td>
-
         <td>{{ item.price * item.quantity }}</td>
       </tr>
     </tbody>
@@ -47,7 +43,7 @@
       Total: ₹ {{ getGrandTotal() }}
     </h4>
       <button class="btn btn-primary w-100 mt-4" (click)="backToShop()">Go to Home</button>
-
+      
   </div>
 </div>
 

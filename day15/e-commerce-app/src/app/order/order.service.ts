@@ -15,6 +15,10 @@ export class OrderService {
     return this.http.post(this.baseUrl, order);
   }
 
+  getAllOrders(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
+  
   approveOrder(id: number): Observable<any> {
     return this.http.put(`${this.baseUrl}/${id}/approve`, {});
   }

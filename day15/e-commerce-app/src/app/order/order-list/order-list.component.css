@@ -1,0 +1,112 @@
+/* Center the whole page */
+.page-title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Container for all order cards */
+.orders-container {
+  max-width: 900px;
+  margin: 0 auto; /* center */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Individual order card */
+.order-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Order header */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.order-id {
+  font-weight: bold;
+}
+
+.order-status {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+/* Items inside an order */
+.items-box {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+/* One product row */
+.item-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px dashed #ddd;
+}
+
+.item-row:last-child {
+  border-bottom: none;
+}
+
+/* Product image */
+.item-img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Product info */
+.item-info h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.item-info p {
+  margin: 3px 0 0;
+  font-size: 14px;
+}
+
+/* Buttons */
+.actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  padding: 8px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Button colors */
+.approve {
+  background-color: #4caf50;
+}
+.reject {
+  background-color: #f44336;
+}
+.cancel {
+  background-color: #ff9800;
+}
