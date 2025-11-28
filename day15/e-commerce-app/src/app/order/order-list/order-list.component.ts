@@ -25,7 +25,6 @@ export class OrderListComponent implements OnInit {
        this.orders = orders.filter(order => order.status === 'PENDING');
       this.orders.forEach(order => {
         order.items.forEach((item: any) => {
-
           this.productService.getFlowerById(item.productId)
             .subscribe(product => {
               item.productDetails = product;   // attach product info
