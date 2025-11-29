@@ -19,7 +19,11 @@ export class LoginComponent {
 
   login() {
     this.api.login(this.username, this.password).subscribe({
-      next: () => { this.router.navigate(['/']); },
+      next: () => { 
+        console.log('Login successful');
+        this.router.navigate(['/dashboard']); 
+        // console.log('Login successful111');
+      },
       error: (err) => {
         this.error = 'Login failed. Please check your credentials.';
       }
