@@ -1,6 +1,64 @@
-<p>dashboard works!</p>
+<div class="container mt-5 p-4 shadow rounded bg-light">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0 text-primary fw-bold">Welcome to Dashboard</h2>
+
+    <button class="btn btn-danger px-4" (click)="logout()">
+      Logout
+    </button>
+  </div>
+
+  <!-- Admin Buttons -->
+  <div *ngIf="role === 'Admin'" class="text-center">
+
+    <h5 class="mb-3 text-secondary">Manage Orders</h5>
+
+    <div class="btn-group" role="group">
+
+      <button class="btn btn-outline-primary" (click)="openOrders('ALL')">
+        All
+      </button>
+
+      <button class="btn btn-outline-warning" (click)="openOrders('PENDING')">
+        Pending
+      </button>
+
+      <button class="btn btn-outline-success" (click)="openOrders('APPROVED')">
+        Approved
+      </button>
+
+      <button class="btn btn-outline-danger" (click)="openOrders('REJECTED')">
+        Rejected
+      </button>
+
+      <button class="btn btn-outline-secondary" (click)="openOrders('CANCELLED')">
+        Cancelled
+      </button>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<!-- <p>dashboard works!</p>
 
 <div class="container mt-5">
       <h2>Welcome to Dashboard</h2>
       <button class="btn btn-danger mt-3" (click)="logout()">Logout</button>
 </div>
+
+
+<div *ngIf="role === 'Admin'" class="order-status-buttons">
+  <button (click)="openOrders('ALL')">All Orders</button>
+  <button (click)="openOrders('PENDING')">Pending Orders</button>
+  <button (click)="openOrders('APPROVED')">Approved Orders</button>
+  <button (click)="openOrders('REJECTED')">Rejected Orders</button>
+  <button (click)="openOrders('CANCELLED')">Cancelled Orders</button>
+</div> -->

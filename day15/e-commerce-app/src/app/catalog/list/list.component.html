@@ -1,9 +1,13 @@
 
 <h2>🌸 Flower List</h2>
 
-<button routerLink="/catalog/add" class="add-btn">Add New Flower</button>
+<!-- <button routerLink="/catalog/add" class="add-btn">Add New Flower</button> -->
+
 <button routerLink="/cart" class="cart-btn">Show Cart</button>
-<button routerLink="/orders" class="cart-btn">Show Pending Orders</button>
+<!-- <button routerLink="/orders" class="cart-btn">Show Pending Orders</button> -->
+<button class="cart-btn" (click)="showOrderHistory()">My Order History</button>
+<button class="cart-btn" (click)="logout()">Logout</button>
+
 
 <div class="grid">
 

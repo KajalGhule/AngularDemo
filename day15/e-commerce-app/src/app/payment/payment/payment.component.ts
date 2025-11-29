@@ -176,17 +176,6 @@ export class PaymentComponent {
     quantity: cartData[id]
   }));
 
-  // const order = {
-  //   id: Math.floor(1000 + Math.random() * 9000),
-  //   customerId: this.customerId,
-  //   items: cart.map((i: any) => ({
-  //     productId: i.productId,
-  //     qty: i.quantity
-  //   })),
-  //   status: "PENDING",
-  //   createdAt: new Date().toISOString(),
-  //   updatedAt: new Date().toISOString()
-  // };
 
   const order = {
   customerId: this.customerId,
@@ -231,7 +220,7 @@ export class PaymentComponent {
           console.log("Order created:", orderRes);
 
           // STEP 3 → Clear Cart
-          // localStorage.removeItem('cart');
+          localStorage.removeItem('cart');
 
           // STEP 4 → Redirect
           this.router.navigate(['/order']);

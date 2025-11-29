@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -32,4 +33,18 @@ constructor(private http: HttpClient) {}
   login(username: string, password: string) {
     return this.http.post('http://localhost:8000/auth/login', { username, password });
   }
+
+   getRole(): string {
+    const token = localStorage.getItem("jwt");
+    if (!token) return "";
+
+    try {
+      const decoded: any = jwtDecode(token);
+      console.log("Decoded JWT =", decoded.role);  
+      return decoded.role;  // extract role from JWT
+    } catch {
+      return "";
+    }
+  }
+
 }

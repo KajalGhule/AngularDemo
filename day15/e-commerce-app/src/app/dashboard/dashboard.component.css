@@ -1,0 +1,65 @@
+.dashboard-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+  font-weight: 600;
+}
+
+.logout-btn {
+  background: #ff4d4d;
+  border: none;
+  padding: 10px 22px;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #d93636;
+}
+
+.order-status-buttons {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.status-btn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+/* Button Colors */
+.status-btn.all { background-color: #4c6ef5; }       /* Blue */
+.status-btn.pending { background-color: #f59f00; }   /* Yellow */
+.status-btn.approved { background-color: #37b24d; }  /* Green */
+.status-btn.rejected { background-color: #e03131; }  /* Red */
+.status-btn.cancelled { background-color: #868e96; } /* Grey */
+
+/* Hover Effects */
+.status-btn:hover {
+  transform: scale(1.07);
+  opacity: 0.9;
+}

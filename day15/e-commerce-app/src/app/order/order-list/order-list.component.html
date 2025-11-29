@@ -1,7 +1,7 @@
-<h2 class="page-title">Pending Orders</h2>
+<h2 class="page-title">Orders</h2>
 
 <div class="orders-container">
-  <div class="order-card" *ngFor="let order of orders">
+  <div class="order-card" *ngFor="let order of filteredOrders">
     
     <div class="order-header">
       <span class="order-id">Order #{{ order.id }}</span>
@@ -26,10 +26,19 @@
     </div>
 
     <div class="actions">
-      <button class="btn approve" (click)="approve(order.id)" [disabled]="order.status !== 'PENDING'">Approve</button>
+      <!-- <button class="btn approve" (click)="approve(order.id)" [disabled]="order.status !== 'PENDING'">Approve</button>
       <button class="btn reject" (click)="reject(order.id)" [disabled]="order.status !== 'PENDING'">Reject</button>
-      <button class="btn cancel" (click)="cancel(order.id)" [disabled]="order.status !== 'PENDING'">Cancel</button>
+      <button class="btn cancel" (click)="cancel(order.id)" [disabled]="order.status !== 'PENDING'">Cancel</button> -->
+      <ng-container *ngIf="userRole === 'Admin'">
+        <button class="btn approve" (click)="approve(order.id)" [disabled]="order.status !== 'PENDING'">Approve</button>
+        <button class="btn reject" (click)="reject(order.id)" [disabled]="order.status !== 'PENDING'">Reject</button>
+        <button class="btn cancel" (click)="cancel(order.id)" [disabled]="order.status !== 'PENDING'">Cancel</button>
+      </ng-container>
+    
+        <!-- CUSTOMER -->
+      <ng-container *ngIf="userRole === 'Customer'">
+        <button class="btn cancel" (click)="cancel(order.id)" [disabled]="order.status !== 'PENDING'">Cancel</button>
+      </ng-container>
     </div>
-
   </div>
 </div>

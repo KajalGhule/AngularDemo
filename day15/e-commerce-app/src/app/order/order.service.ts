@@ -34,4 +34,9 @@ export class OrderService {
   placeOrder(order: any) {
     return this.http.post(`${this.baseUrl}`, order);
   }
+
+  getOrdersByCustomer(customerId: number) {
+    return this.http.get<any[]>(`${this.baseUrl}/customer/${customerId}`);
+  }
+
 }
